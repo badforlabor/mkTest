@@ -38,17 +38,6 @@ all_c_files_recursively = \
 LOCAL_SRC_FILES += $(call all_cpp_files_recursively,$(MY_SRC_ROOT))
 LOCAL_SRC_FILES += $(call all_c_files_recursively,$(MY_SRC_ROOT))
 
-# 去除字串的重复单词
-
-define uniq =
-  $(eval seen :=)
-  $(foreach _,$1,$(if$(filter$_,${seen}),,$(eval seen += $_)))
-  ${seen}
-endef
-
-LOCAL_SRC_FILES := $(call uniq,$(LOCAL_SRC_FILES))
-
-
 $(warning "$(LOCAL_MODULE) cpp: $(LOCAL_SRC_FILES)") 
 include $(BUILD_SHARED_LIBRARY)
 
