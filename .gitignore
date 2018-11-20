@@ -1,3 +1,6 @@
+obj/
+lib/
+
 # Built application files
 *.apk
 *.ap_
